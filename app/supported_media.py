@@ -11,16 +11,6 @@ class Multimedia(Enum):
         return response.isdigit() and int(response) in [i.value for i in Multimedia] 
     
     @classmethod
-    def parse_option(cls, response: str):
-        match response:
-            case "1":
-                return Multimedia.TV_SHOW
-            case "2":
-                return Multimedia.MUSIC
-            case "3":
-                return Multimedia.ANIME
-            case "4":
-                return Multimedia.MOVIE
-            case "5":
-                return Multimedia.VIDEOGAME
-        
+    def formatted(cls) -> str:
+        fmt = [f"[{m.value}] {m.name.replace('_', ' ')}S" for m in Multimedia]
+        return '\n'.join(fmt)
