@@ -1,4 +1,4 @@
-
+from supported_media import Multimedia
 class Messages:
 
     @staticmethod
@@ -58,3 +58,17 @@ Or you can leave it empty to get a general recommendation.
 And that you have something to add to your favourite catalog!
 Feel free to come back anytime.
 """
+
+    @staticmethod
+    def get_media_msg(media: Multimedia) -> str:
+        match media:
+            case Multimedia.TV_SHOW:
+                return Messages.shows_user()
+            case Multimedia.MUSIC:
+                return Messages.music_user()
+            case Multimedia.ANIME:
+                return Messages.anime_user()
+            case Multimedia.MOVIE:
+                return Messages.movie_user()
+            case Multimedia.VIDEOGAME:
+                return Messages.videogame_user()
