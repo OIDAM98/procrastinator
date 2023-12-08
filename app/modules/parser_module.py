@@ -1,12 +1,15 @@
 class Parser:
     @staticmethod
-    def get_user_picks(msg: str) -> list[str]:
+    def get_user_input(msg: str, max=3, validate_function=None) -> list[str]:
         inputs = []
         print(msg)
-        while len(inputs) < 3:
-            user_input = input()
+        while len(inputs) < max:
+            user_input = input("> ")
             if user_input == '':
                 break
-            else:
-                inputs.append(user_input.strip())
+            elif validate_function:
+                if validate_function(user_input) == False:
+                    print("You entered an invalid choice. Try again.")
+                    continue
+            inputs.append(user_input.strip())
         return inputs
