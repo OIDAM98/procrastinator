@@ -8,7 +8,8 @@ class Multimedia(Enum):
     VIDEOGAME = 5
     @classmethod
     def validate_option(cls, response: str) -> bool:
-        return response.isdigit() and int(response) > 0 and int(response) < 5
+        return response.isdigit() and int(response) in [i.value for i in Multimedia] 
+    
     @classmethod
     def parse_option(cls, response: str):
         match response:
