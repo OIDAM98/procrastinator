@@ -1,4 +1,4 @@
-from supported_media import Multimedia
+from app.supported_media import Multimedia
 class Messages:
 
     @staticmethod
@@ -41,7 +41,7 @@ You can enter at most 3 picks and press enter after each one to confirm it.
 
     @staticmethod
     def ask_recommendations() -> str:
-        return """What is somwthing you would like a recommendation on?
+        return """What is something you would like a recommendation on?
 Choose up to 3 of the following options.
     - Enter the numbers separated by a comma
 Or you can leave it empty to get a general recommendation.
