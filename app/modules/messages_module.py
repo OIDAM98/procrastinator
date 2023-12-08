@@ -3,7 +3,13 @@ class Messages:
 
     @staticmethod
     def welcome() -> str:
-        return """Welcome!"""
+        return """Welcome to Procrastinator!
+We'll give you some media recommendations based on your existing preferences.
+Right now we only support Movies, TV Shows, Videogames, Artists / Bands, and Anime recommendations.
+To provide you with the best possible choices to procrastinate on, we brought in an expert:
+Just beware, he only knows about stuff up to 2022!
+He hasn't been up to date with the latest, but hopefully with the greatest he has.
+"""
 
     @staticmethod
     def ask_about_user() -> str:
@@ -21,7 +27,7 @@ You can enter at most 3 picks and press enter after each one to confirm it.
 
     @staticmethod
     def shows_user() -> str:
-        return "What about your picks for tv shows."
+        return "What about your picks for TV shows."
 
     @staticmethod
     def anime_user() -> str:
@@ -29,27 +35,25 @@ You can enter at most 3 picks and press enter after each one to confirm it.
 
     @staticmethod
     def music_user() -> str:
-        return "Any bands, songs or artists that you danced to?"
+        return "Any bands or artists that you danced to?"
 
     @staticmethod
     def videogame_user() -> str:
-        return "Finally, have you been playing recently? Or your favorites."
+        return "Finally, have you been playing any videogames recently? Or maybe your favorites."
 
     @staticmethod
     def save_recommendations() -> str:
-        return "Would you like to save the recommendations to a text file?"
+        return """Would you like to save the recommendations to a text file?
+That way you can add everything to your Wish lists!
+"""
 
     @staticmethod
     def ask_recommendations() -> str:
-        return """What is something you would like a recommendation on?
+        return f"""What is something you would like a recommendation on?
 Choose up to 3 of the following options.
     - Enter the numbers separated by a comma
 Or you can leave it empty to get a general recommendation.
-[1] Anime
-[2] Videogames
-[3] Movies
-[4] TV Shows
-[5] Music
+{Multimedia.formatted()}
 """
 
     @staticmethod
