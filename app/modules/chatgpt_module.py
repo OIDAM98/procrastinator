@@ -47,5 +47,5 @@ class ChatGPT:
         return self.request_openai(final, "user")
 
     def opening_message(self) -> str:
-        message = "You are a someone that knows a lot about TV shows, movies, music, videogames, and anime."
+        message = "You are a someone that knows a lot about TV shows, movies, music, videogames, and anime. I want some media recommendations on those topics, but first introduce yourself."
         return self.request_openai(message)
