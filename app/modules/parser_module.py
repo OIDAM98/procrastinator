@@ -13,3 +13,9 @@ class Parser:
                     continue
             inputs.append(user_input.strip())
         return inputs
+
+    @staticmethod 
+    def filter_empty_picks(picks: list[(list[str], any)]):
+        def not_empty_pick(pick: (list[str], any)):
+            return len(pick[0]) > 0
+        return list(filter(not_empty_pick, picks))
