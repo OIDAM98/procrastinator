@@ -19,3 +19,10 @@ class Parser:
         def not_empty_pick(pick: (list[str], any)):
             return len(pick[0]) > 0
         return list(filter(not_empty_pick, picks))
+
+    @staticmethod
+    def generate_fav_list(input: list[str], msg: str) -> str:
+        def choices_to_chatgpt(choices: list) -> list[str]:
+            return list(map(lambda x: f"- {x}", choices))
+        prepared_lst = [msg, *choices_to_chatgpt(input)]
+        return '\n'.join(prepared_lst)
