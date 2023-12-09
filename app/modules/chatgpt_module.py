@@ -39,6 +39,13 @@ class ChatGPT:
         # Return the message content from the API response
         return response.model_dump()["choices"][0]["message"]["content"]
 
+    def ask_recom(self, message: str) -> str:
+        return self.request_openai(message, "user")
+
+    def tell_list(self, message: str) -> str:
+        final = f"{message}\nCan you comment something about this list?"
+        return self.request_openai(final, "user")
+
     def opening_message(self) -> str:
         message = "You are a someone that knows a lot about TV shows, movies, music, videogames, and anime."
         return self.request_openai(message)
