@@ -1,5 +1,5 @@
 # Procrastinator
-Procrastinator is an interactive Python-based project that finds different media recommendations based on at most 3 choices given for each media category. It is meant to be used as a way to find new media to consume and procrastinate with, and maybe even add to your favourites!
+Procrastinator is an interactive Python-based CLI project that finds different media recommendations based on at most 3 choices given for each media category. It is meant to be used as a way to find new media to consume and procrastinate with, and maybe even add to your favourites!
 
 ## Features
 
