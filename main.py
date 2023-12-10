@@ -6,11 +6,10 @@ from app.supported_media import Multimedia
 from app.modules.parser_module import Parser
 
 def get_user_picks() -> list[(list[str], Multimedia)]:
-    inputs = []
-    for i in (Multimedia):
-        picks = Parser.get_user_input(Messages.get_media_msg(i))
-        inputs.append((picks, i))
-    return inputs
+    return [
+        (Parser.get_user_input(Messages.get_media_msg(i)), i)
+        for i in Multimedia
+    ]
 
 def package_favs(favs: list[(list[str], Multimedia)], summary=False) -> str:
     msgs = []
