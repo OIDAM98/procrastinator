@@ -42,16 +42,50 @@ class ChatGPT:
         return response.model_dump()["choices"][0]["message"]["content"]
 
     def ask_recom(self, message: str) -> str:
+        """
+        API Request to OpenAI. Mainly used to get recommendations from the user.
+
+        Args:
+        - message (str): 
+
+        Returns:
+        - str: The response from OpenAI API.
+        """
         return self.request_openai(message, "user")
 
     def tell_list(self, message: str) -> str:
+        """
+        API Request to OpenAI.
+        Inteded to show the list of picks from the user.
+
+        Args:
+        - message (str): A list depicting the chosen picks from the user.
+        Will be the base for following recommendations.
+
+        Returns:
+        - str: The response from OpenAI API. Most commonly comments about the list passed.
+        """
         final = f"{message}\nCan you comment something about this list?"
         return self.request_openai(final, "user")
 
     def opening_message(self) -> str:
+        """
+        Used to open the interaction between the user and OpenAI API.
+        Sets up the API as a recommender for the application, using the system role.
+
+        Returns:
+        - str: A welcoming message from OpenAI API.
+        """
         message = "You are a someone that knows a lot about TV shows, movies, music, videogames, and anime. I want some media recommendations on those topics, but first introduce yourself."
         return self.request_openai(message)
 
     def closing_message(self) -> str:
+        """
+        Used to finish the interaction between the user and OpenAI API.
+        Mimics a closing and thanking message from the user to the recommender.
+
+        Returns:
+        - str: A goodbye message from OpenAI API.
+        """
         message = "Thanks a lot for the recommendations! Will keep them in mind. That's all I need now."
         return self.request_openai(message, "user")
