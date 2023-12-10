@@ -57,9 +57,12 @@ if __name__ == '__main__':
     fav_media = Parser.filter_empty_picks(get_user_picks())
 
     fav_msg = package_favs(fav_media)
+    print("Now let's see what the expert says about your favourite media!")
+    print("This may take a few seconds, so wait a little please")
     print(client.tell_list(fav_msg))
 
     choices = get_recom_choices()
+    print("Please wait a few seconds while we get our expert's recommendations!")
     recommendations = get_chatgpt_recom(choices)
     for i in recommendations:
         print(i)
