@@ -3,12 +3,14 @@
 # Based on the brain_module facilitated for the Capstone Project
 
 import os
+from dotenv import load_dotenv
 import openai
 
 class ChatGPT:
     """A class to interact with OpenAI's ChatGPT model."""
 
     def __init__(self):
+        load_dotenv()
         # Retrieve the OPENAI_API_KEY environment variable
         self.api_key = os.getenv("OPENAI_API_KEY")
 
