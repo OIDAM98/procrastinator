@@ -21,3 +21,5 @@ poetry.lock
 
 # Editor/IDE
 .vscode/
+
+recommendations.txt
