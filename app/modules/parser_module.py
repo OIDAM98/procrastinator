@@ -1,6 +1,8 @@
 class Parser:
     @staticmethod
     def get_user_input(msg: str, max=3, validate_function=None) -> list[str]:
+        if max <= 0:
+            raise ValueError('max argument must be greater than 0')
         inputs = []
         print(msg)
         while len(inputs) < max:
