@@ -10,8 +10,17 @@ class Messages:
     def ask_about_user() -> str:
         return _ASK_ABOUT_USER
     
+    @staticmethod
     def ask_recommendations() -> str:
         return _ASK_RECOMMENDATIONS.format(Multimedia.formatted())
+
+    @staticmethod
+    def closing_message() -> str:
+        return _CLOSING
+
+    @staticmethod
+    def saving_message() -> str:
+        return _SAVE_RECOMMENDATIONS
 
     @staticmethod
     def get_media_msg(media: Multimedia) -> str:
@@ -88,6 +97,7 @@ Or you can leave it empty to get a general recommendation.
 
 _SAVE_RECOMMENDATIONS = """Would you like to save the recommendations to a text file?
 That way you can add everything to your Wish lists!
+Enter either [y/n] or [Yes/No]
 """
 _CLOSING = """Hope you enjoyed your recommendations.
 And that you have something to add to your favourite catalog!
