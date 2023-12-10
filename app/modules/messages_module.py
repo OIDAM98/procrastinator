@@ -8,10 +8,19 @@ class Messages:
     
     @staticmethod
     def ask_about_user() -> str:
+        """
+        Get a message prompting the user for their multimedia choices.
+
+        Returns:
+        - str: The message asking the user about their multimedia picks.
+        """
         return _ASK_ABOUT_USER
     
     @staticmethod
     def ask_recommendations() -> str:
+        """
+        asdfsdf
+        """
         return _ASK_RECOMMENDATIONS.format(Multimedia.formatted())
 
     @staticmethod
@@ -20,10 +29,25 @@ class Messages:
 
     @staticmethod
     def saving_message() -> str:
+        """
+        Returns the message to be displayed when asking the user to save the recommendations.
+        """
         return _SAVE_RECOMMENDATIONS
 
     @staticmethod
     def get_media_msg(media: Multimedia) -> str:
+        """
+        Get a user-specific message for a given multimedia category.
+
+        Parameters:
+        - media (Multimedia): The multimedia category for which the user-specific message is requested.
+
+        Returns:
+        - str: The user-specific message.
+
+        Raises:
+        - ValueError: If the provided multimedia category is not supported.
+        """
         match media:
             case Multimedia.TV_SHOW:
                 return _SHOWS_USER
@@ -35,9 +59,23 @@ class Messages:
                 return _MOVIE_USER
             case Multimedia.VIDEOGAME:
                 return _VIDEOGAME_USER
+            case _:
+                raise ValueError(f"Unsupported multimedia category: {media}")
 
     @staticmethod
     def get_chatgpt_msg(media: Multimedia) -> str:
+        """
+        Get a message related to send to ChatGPT for a specific multimedia category.
+
+        Parameters:
+        - media (Multimedia): The multimedia category for which the ChatGPT message is requested.
+
+        Returns:
+        - str: The ChatGPT message.
+
+        Raises:
+        - ValueError: If the provided multimedia category is not supported.
+        """
         match media:
             case Multimedia.TV_SHOW:
                 return _SHOWS_CHATGPT
@@ -49,15 +87,30 @@ class Messages:
                 return _MOVIE_CHATGPT
             case Multimedia.VIDEOGAME:
                 return _VIDEOGAME_CHATGPT
+            case _:
+                raise ValueError(f"Unsupported multimedia category: {media}")
 
     @staticmethod
-    def get_recm_msg(media: Multimedia = None):
+    def get_recm_msg(media: Multimedia = None) -> str:
+        """
+        Generate a recommendation message based on the specified multimedia category.
+        
+        Args:
+        - media (Multimedia): Multimedia category for which a recommendation is requested.
+        If None, a general recommendation for all categories will be provided.
+
+        Returns:
+        - (str): The recommendation message.
+
+        """
         msg = "Using the same list that I gave you, can you now recommend me something"
         ending = "please? At least 3 or 4 things"
         if media == None:
             return f"{msg} in {Multimedia.categories()} to consume, {ending} per category."
         else:
             return f"{msg} specific to {media.msg_format()}, {ending}."
+
+# Private constants for the module
 
 _WELCOME = """Welcome to Procrastinator!
 We'll give you some media recommendations based on your existing preferences.
@@ -103,6 +156,3 @@ _CLOSING = """Hope you enjoyed your recommendations.
 And that you have something to add to your favourite catalog!
 Feel free to come back anytime.
 """
-
-
-
