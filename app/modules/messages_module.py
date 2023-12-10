@@ -143,7 +143,6 @@ _VIDEOGAME_CHATGPT = "Here are some videogames that I have enjoyed:"
 
 _ASK_RECOMMENDATIONS = """What is something you would like a recommendation on?
 Choose up to 3 of the following options.
-    - Enter the numbers separated by a comma
 Or you can leave it empty to get a general recommendation.
 {0}
 """
