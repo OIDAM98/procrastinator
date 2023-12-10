@@ -28,3 +28,7 @@ class Parser:
             return list(map(lambda x: f"- {x}", choices))
         prepared_lst = [msg, *choices_to_chatgpt(input)]
         return '\n'.join(prepared_lst)
+
+    @staticmethod
+    def validate_saving_option(opt: str) -> bool:
+        return opt.lower() in ('yes', 'no', 'n', 'y')
